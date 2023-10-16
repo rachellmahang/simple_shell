@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
-  * fetch_toks - tokenizes a string
+  * fetch_tokens - tokenizes a string
   * @tok_string: string to be tokenized
   * @delim: char * of delimiters
   * Return: char **, argument vector to be used in execve or other

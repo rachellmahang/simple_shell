@@ -76,9 +76,9 @@ int _cd(char **argv, env_list_t **env);
 void do_nothing(int nothing);
 
 /* cmd assembly */
-char **fetch_toks(char *string_tok, char *delim);
+char **fetch_tokens(char *string_tok, char *delim);
 int isin_dir(char *term, char *dir);
-char *whitcher(char *cmd, env_list_t **env);
+char *task6(char *rmd, env_l_j **env);
 void rem_comments(char *str);
 void double_free(char **argv);
 
