@@ -77,7 +77,7 @@ void do_nothing(int nothing);
 
 /* cmd assembly */
 char **fetch_tokens(char *string_tok, char *delim);
-int isin_dir(char *term, char *dir);
+int task10(char *trm, char *diy);
 char *task6(char *rmd, env_l_j **env);
 void comments_r(char *rst);
 void double_free(char **argv);
@@ -101,9 +101,9 @@ void free_env_list(env_l_j **env);
 char **_get_str_env(env_l_j **env);
 
 /* ops */
-void *op_push_end(order_t **ops, int n);
-char **_get_cmds(char *line, order_t **ops);
-void free_ops(order_t **ops);
+void *task11(order_t **pso, int n);
+char **_get_comands(char *line, order_t **pso);
+void free_pso(order_t **pso);
 
 extern char **environ;
 extern int *LINE_COUNT;
