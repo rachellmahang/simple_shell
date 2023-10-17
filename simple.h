@@ -90,15 +90,15 @@ char *_getenv(char *entry, char ***env);
 void _printenv(char ***env);
 
 /* env_list */
-env_list_t **_initenv_list(void);
-void printenv_list(env_list_t **env);
-char *_getenv_list_value(char *name, env_list_t **env);
-env_list_t *_getenv_list_node(char *name, env_list_t **env);
-void _setenv_list(char **argv, env_list_t **env);
-void free_env_list_node(env_list_t *node);
-void _unsetenv_list(char **argv, env_list_t **env);
-void free_env_list(env_list_t **env);
-char **_get_str_env(env_list_t **env);
+env_l_j **_initenv_list(void);
+void printenv_list(env_l_j **env);
+char *_getenv_list_value(char *name, env_l_j **env);
+env_l_j *_getenv_l_node(char *name, env_l_j **env);
+void _setenv_list(char **argv, env_l_j **env);
+void free_env_l_node(env_l_j *node);
+void _unsetenv_list(char **argv, env_l_j **env);
+void free_env_list(env_l_j **env);
+char **_get_str_env(env_l_j **env);
 
 /* ops */
 void *op_push_end(order_t **ops, int n);

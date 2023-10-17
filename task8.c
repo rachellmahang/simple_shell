@@ -6,38 +6,38 @@
   * @env: environment linked list
   * Return: char * containing nodes value
   */
-char *_getenv_list_value(char *name, env_list_t **env)
+char *_getenv_list_value(char *name, env_l_j **env)
 {
-	env_list_t *i = *env;
+	env_l_j *r = *env;
 
-	while (i)
+	while (r)
 	{
-		if (!_strcmp(name, i->name))
+		if (!_strcmp(name, r->name))
 		{
-			return (i->value);
+			return (r->value);
 		}
-		i = i->next;
+		r = r->next;
 	}
 	return (NULL);
 }
 
 /**
-  * _getenv_list_node - get's a env_list node
+  * _getenv_l_node - get's a env_l node
   * @name: name to search for
   * @env: environment linked list
-  * Return: env_list_t * node or NULL
+  * Return: env_l_j * node or NULL
   */
-env_list_t *_getenv_list_node(char *name, env_list_t **env)
+env_l_j *_getenv_l_node(char *name, env_l_j **env)
 {
-	env_list_t *i = *env;
+	env_l_j *r = *env;
 
-	while (i)
+	while (r)
 	{
-		if (!_strcmp(name, i->name))
+		if (!_strcmp(name, r->name))
 		{
-			return (i);
+			return (r);
 		}
-		i = i->next;
+		r = r->next;
 	}
 	return (NULL);
 }
@@ -47,13 +47,13 @@ env_list_t *_getenv_list_node(char *name, env_list_t **env)
   * @argv: argument vector
   * @env: environment linked list
   */
-void _setenv_list(char **argv, env_list_t **env)
+void _setenv_list(char **argv, env_l_j **env)
 {
-	env_list_t *a, *b;
+	env_l_j *a, *b;
 
 	if (!argv[1] || !argv[2])
 		return;
-	a = _getenv_list_node(argv[1], env);
+	a = _getenv_l_node(argv[1], env);
 
 	if (a)
 	{
@@ -67,7 +67,7 @@ void _setenv_list(char **argv, env_list_t **env)
 	{
 		a = a->next;
 	}
-	b = malloc(sizeof(env_list_t));
+	b = malloc(sizeof(env_l_j));
 	b->name = _strdup(argv[1]);
 	b->value = _strdup(argv[2]);
 	b->next = NULL;
@@ -76,13 +76,13 @@ void _setenv_list(char **argv, env_list_t **env)
 
 
 /**
-  * _unsetenv_list - unset's a env_list var
+  * _unsetenv_list - unset's a env_l var
   * @argv: argument vector
   * @env: environment linked list
   */
-void _unsetenv_list(char **argv, env_list_t **env)
+void _unsetenv_list(char **argv, env_l_j **env)
 {
-	env_list_t *a, *b;
+	env_l_j *a, *b;
 
 	if (!argv[1])
 		return;
@@ -93,7 +93,7 @@ void _unsetenv_list(char **argv, env_list_t **env)
 		if (!_strcmp(argv[1], a->name))
 		{
 			b->next = a->next;
-			free_env_list_node(a);
+			free_env_l_node(a);
 			return;
 		}
 		b = a;
@@ -107,23 +107,23 @@ void _unsetenv_list(char **argv, env_list_t **env)
   * @env: environment linked list
   * Return: char **, a char *[] representation of env
   */
-char **_get_str_env(env_list_t **env)
+char **_get_str_env(env_l_j **env)
 {
-	env_list_t *a = *env;
-	int count = 0, entry_len;
-	char **str_env;
+	env_l_j *a = *env;
+	int cnt = 0, entry_len;
+	char **string_env;
 	char *entry;
 
 	while (a)
 	{
-		count++;
+		cnt++;
 		a = a->next;
 	}
 
-	str_env = malloc(sizeof(char *) * (count + 1));
+	str_env = malloc(sizeof(char *) * (cnt + 1));
 
 	a = *env;
-	count = 0;
+	cnt = 0;
 	while (a)
 	{
 		entry_len = _strlen(a->name) + _strlen(a->value) + 2;
@@ -131,10 +131,10 @@ char **_get_str_env(env_list_t **env)
 		_strcpy(entry, a->name);
 		entry = _strcat(entry, "=");
 		entry = _strcat(entry, a->value);
-		str_env[count] = entry;
-		count++;
+		str_env[cnt] = entry;
+		cnt++;
 		a = a->next;
 	}
-	str_env[count] = NULL;
+	str_env[cnt] = NULL;
 	return (str_env);
 }
