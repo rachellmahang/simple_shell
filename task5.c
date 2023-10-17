@@ -13,7 +13,7 @@ void task5(char *becca, size_t size)
 	{
 		if (feof(stdin))
 		{
-			printf("\n");
+			_puts("\n");
 			exit(EXIT_SUCCESS);
 		}
 		else

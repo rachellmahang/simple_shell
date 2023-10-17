@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "simple.h"
 
 /**
   * _getenv_list_value - get's a env_list node's value from a name
@@ -6,9 +6,9 @@
   * @env: environment linked list
   * Return: char * containing nodes value
   */
-char *_getenv_list_value(char *name, env_l_j **env)
+char *_getenv_list_value(char *name, env_list_t **env)
 {
-	env_l_j *r = *env;
+	env_list_t *r = *env;
 
 	while (r)
 	{
@@ -25,11 +25,11 @@ char *_getenv_list_value(char *name, env_l_j **env)
   * _getenv_l_node - get's a env_l node
   * @name: name to search for
   * @env: environment linked list
-  * Return: env_l_j * node or NULL
+  * Return: env_list_t * node or NULL
   */
-env_l_j *_getenv_l_node(char *name, env_l_j **env)
+env_list_t *_getenv_l_node(char *name, env_list_t **env)
 {
-	env_l_j *r = *env;
+	env_list_t *r = *env;
 
 	while (r)
 	{
@@ -47,9 +47,9 @@ env_l_j *_getenv_l_node(char *name, env_l_j **env)
   * @argv: argument vector
   * @env: environment linked list
   */
-void _setenv_list(char **argv, env_l_j **env)
+void _setenv_list(char **argv, env_list_t **env)
 {
-	env_l_j *a, *b;
+	env_list_t *a, *b;
 
 	if (!argv[1] || !argv[2])
 		return;
@@ -67,7 +67,7 @@ void _setenv_list(char **argv, env_l_j **env)
 	{
 		a = a->next;
 	}
-	b = malloc(sizeof(env_l_j));
+	b = malloc(sizeof(env_list_t));
 	b->name = _strdup(argv[1]);
 	b->value = _strdup(argv[2]);
 	b->next = NULL;
@@ -80,9 +80,9 @@ void _setenv_list(char **argv, env_l_j **env)
   * @argv: argument vector
   * @env: environment linked list
   */
-void _unsetenv_list(char **argv, env_l_j **env)
+void _unsetenv_list(char **argv, env_list_t **env)
 {
-	env_l_j *a, *b;
+	env_list_t *a, *b;
 
 	if (!argv[1])
 		return;
@@ -107,9 +107,9 @@ void _unsetenv_list(char **argv, env_l_j **env)
   * @env: environment linked list
   * Return: char **, a char *[] representation of env
   */
-char **_get_str_env(env_l_j **env)
+char **_get_str_env(env_list_t **env)
 {
-	env_l_j *a = *env;
+	env_list_t *a = *env;
 	int cnt = 0, entry_len;
 	char **string_env;
 	char *entry;
@@ -120,7 +120,7 @@ char **_get_str_env(env_l_j **env)
 		a = a->next;
 	}
 
-	str_env = malloc(sizeof(char *) * (cnt + 1));
+	string_env = malloc(sizeof(char *) * (cnt + 1));
 
 	a = *env;
 	cnt = 0;
@@ -131,10 +131,10 @@ char **_get_str_env(env_l_j **env)
 		_strcpy(entry, a->name);
 		entry = _strcat(entry, "=");
 		entry = _strcat(entry, a->value);
-		str_env[cnt] = entry;
+		string_env[cnt] = entry;
 		cnt++;
 		a = a->next;
 	}
-	str_env[cnt] = NULL;
-	return (str_env);
+	string_env[cnt] = NULL;
+	return (string_env);
 }

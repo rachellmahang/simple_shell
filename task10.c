@@ -1,4 +1,6 @@
-#include "shell.h"
+#include "simple.h"
+#include <dirent.h>
+
 
 /**
   * task10 - checks if term is in the directory given
@@ -9,7 +11,7 @@
 int task10(char *trm, char *diy)
 {
 	DIR *file;
-	struct direct *entry;
+	struct dirent *entry;
 	int files = 0;
 
 	file = opendir(diy);

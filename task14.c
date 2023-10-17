@@ -1,16 +1,16 @@
-#include "shell.h"
+#include "simple.h"
 
 /**
-  * double_free - free's char * arrays
+  * task14 - free's char * arrays
   * @argv: argument vector
   */
-void double_free(char **argv)
+void task14(char **argv)
 {
-	int i;
+	int r;
 
-	for (i = 0; argv[i]; i++)
+	for (r = 0; argv[r]; r++)
 	{
-		free(argv[i]);
+		free(argv[r]);
 	}
 	free(argv);
 }

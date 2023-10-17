@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "simple.h"
 
 /**
   * comments_r - removes comments from a string

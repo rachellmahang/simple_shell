@@ -47,6 +47,7 @@ typedef struct env_list
 	char *value;
 	struct env_list *next;
 } env_list_t;
+int mains(__attribute__((unused))int ac, char **av);
 
 /* getline */
 int _getline(char **lineptr, size_t *n, FILE *stream);
@@ -55,32 +56,32 @@ int _getline(char **lineptr, size_t *n, FILE *stream);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 /* string helpers */
-int _atoi(char *s);
-int _strlen(char *str);
-char *_strdup(char *str);
+int _atoi(char *l);
+int _strlen(char *rst);
+char *_strdup(char *rst);
 int _strcmp(char *s1, char *s2);
-char *_strcpy(char *dest, char *src);
-char *_strcat(char *dest, char *src);
+char *_strcpy(char *destin, char *source);
+char *_strcat(char *destin, char *source);
 char *_strtok(char *buffer, const char *delim);
 char *_strchr(char *s, char c);
-void _puts(char *str);
+void _puts(char *rst);
 void puts_prompt(void);
 int _putchar(char c);
 void _puts_int(int n);
 int MATH_pow(int base, int exp);
 
 /* cmd_handler */
-int cmd_handler(char **argv, env_list_t **env);
-int built_in_handler(char **argv, env_list_t **env, int i);
+int task13(char **argv, env_list_t **env);
+int built_in_handler(char **argv, env_list_t **env, int r);
 int _cd(char **argv, env_list_t **env);
-void do_nothing(int nothing);
+void do_something(int something);
 
 /* cmd assembly */
 char **fetch_tokens(char *string_tok, char *delim);
 int task10(char *trm, char *diy);
-char *task6(char *rmd, env_l_j **env);
+char *task6(char *rmd, env_list_t **env);
 void comments_r(char *rst);
-void double_free(char **argv);
+void task14(char **argv);
 
 /* env variable */
 char **_initenv(void);
@@ -90,15 +91,15 @@ char *_getenv(char *entry, char ***env);
 void _printenv(char ***env);
 
 /* env_list */
-env_l_j **_initenv_list(void);
-void printenv_list(env_l_j **env);
-char *_getenv_list_value(char *name, env_l_j **env);
-env_l_j *_getenv_l_node(char *name, env_l_j **env);
-void _setenv_list(char **argv, env_l_j **env);
-void free_env_l_node(env_l_j *node);
-void _unsetenv_list(char **argv, env_l_j **env);
-void free_env_list(env_l_j **env);
-char **_get_str_env(env_l_j **env);
+env_list_t **_initenv_list(void);
+void printenv_list(env_list_t **env);
+char *_getenv_list_value(char *name, env_list_t **env);
+env_list_t *_getenv_l_node(char *name, env_list_t **env);
+void _setenv_list(char **argv, env_list_t **env);
+void free_env_l_node(env_list_t *node);
+void _unsetenv_list(char **argv, env_list_t **env);
+void free_env_list(env_list_t **env);
+char **_get_str_env(env_list_t **env);
 
 /* ops */
 void *task11(order_t **pso, int n);
@@ -106,14 +107,7 @@ char **_get_comands(char *line, order_t **pso);
 void free_pso(order_t **pso);
 
 extern char **environ;
-extern int *LINE_COUNT;
-extern char **FNC_NAME;
-#endif /* SHELL */
-
-
-
-
-
-
+extern int *NUM_LINE;
+extern char **TASK4_FUNC;
 
 #endif

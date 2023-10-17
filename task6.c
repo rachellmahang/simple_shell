@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "simple.h"
 
 /**
   * task6 - locates cmd's in the PATH
@@ -7,7 +7,7 @@
   * @env: environment linked list
   * Return: as mentioned
   */
-char *task6(char *rmd, env_l_j **env)
+char *task6(char *cmd, env_list_t **env)
 {
 	char *PATH = _getenv_list_value("PATH", env);
 	char *PATH_COPY;
@@ -22,7 +22,7 @@ char *task6(char *rmd, env_l_j **env)
 
 	for (r = 0; toks[r]; r++)
 	{
-		if (isin_dir(cmd, toks[r]))
+		if (task10(cmd, toks[r]))
 		{
 			buffer[0] = 0;
 			_strcat(buffer, toks[r]);

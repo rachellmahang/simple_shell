@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "simple.h"
 
 /**
   * task11 - pushes operator to end of linked list
@@ -54,7 +54,7 @@ char **_get_comands(char *line, order_t **pso)
 			if (line[r + 1] == '&')
 			{
 				task11(pso, 2);
-				i++;
+				r++;
 			}
 		}
 		if (line[r] == '|')
