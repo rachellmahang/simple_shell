@@ -79,7 +79,7 @@ void do_nothing(int nothing);
 char **fetch_tokens(char *string_tok, char *delim);
 int isin_dir(char *term, char *dir);
 char *task6(char *rmd, env_l_j **env);
-void rem_comments(char *str);
+void comments_r(char *rst);
 void double_free(char **argv);
 
 /* env variable */
