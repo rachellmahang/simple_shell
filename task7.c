@@ -1,10 +1,10 @@
 #include "simple.h"
 
 /**
-  * _initenv_list - initialize a env_list
+  * _initenvs_list - initialize a env_list
   * Return: env_list_t **, new list formed
   */
-env_list_t **_initenv_list(void)
+env_list_t **_initenvs_list(void)
 {
 	env_list_t **env = malloc(sizeof(env_list_t *));
 	env_list_t *first = NULL;
@@ -31,10 +31,10 @@ env_list_t **_initenv_list(void)
 }
 
 /**
-  * printenv_list - prints a env_list
+  * printenvs_list - prints a env_list
   * @env: environment linked list
   */
-void printenv_list(env_list_t **env)
+void printenvs_list(env_list_t **env)
 {
 	env_list_t *r = *env;
 
@@ -60,10 +60,10 @@ void free_env_list_node(env_list_t *node)
 }
 
 /**
-  * free_env_list - free's an env_list list
+  * frees_env_list - free's an env_list list
   * @env: environment linked list
   */
-void free_env_list(env_list_t **env)
+void frees_env_list(env_list_t **env)
 {
 	env_list_t *tempvar;
 
