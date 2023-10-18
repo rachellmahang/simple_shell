@@ -18,7 +18,7 @@ int built_in_handler(char **argv, env_list_t **env, int r)
 			_unsetenv_list(argv, env);
 			break;
 		case 3:
-			printenv_list(env);
+			printenvs_list(env);
 			break;
 	}
 	return (0);

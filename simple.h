@@ -12,7 +12,7 @@
 void printr(char *becca, int rae);
 void task1(void);
 void task2(const char *becca);
-int main(void);
+int mains(void);
 void task5(char *becca, size_t size);
 
 #include <sys/types.h>
@@ -47,7 +47,7 @@ typedef struct env_list
 	char *value;
 	struct env_list *next;
 } env_list_t;
-int mains(__attribute__((unused))int ac, char **av);
+int main(__attribute__((unused))int ac, char **av);
 
 /* getline */
 int _getline(char **lineptr, size_t *n, FILE *stream);
@@ -79,7 +79,7 @@ void do_something(int something);
 /* cmd assembly */
 char **fetch_tokens(char *string_tok, char *delim);
 int task10(char *trm, char *diy);
-char *task6(char *rmd, env_list_t **env);
+char *task6(char *cmd, env_list_t **env);
 void comments_r(char *rst);
 void task14(char **argv);
 
@@ -91,14 +91,14 @@ char *_getenv(char *entry, char ***env);
 void _printenv(char ***env);
 
 /* env_list */
-env_list_t **_initenv_list(void);
-void printenv_list(env_list_t **env);
+env_list_t **_initenvs_list(void);
+void printenvs_list(env_list_t **env);
 char *_getenv_list_value(char *name, env_list_t **env);
 env_list_t *_getenv_l_node(char *name, env_list_t **env);
 void _setenv_list(char **argv, env_list_t **env);
 void free_env_l_node(env_list_t *node);
 void _unsetenv_list(char **argv, env_list_t **env);
-void free_env_list(env_list_t **env);
+void frees_env_list(env_list_t **env);
 char **_get_str_env(env_list_t **env);
 
 /* ops */
