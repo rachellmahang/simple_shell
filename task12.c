@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * _strtok - tokenizes the str
+ * _strtok - tokenizes the string
  * @buffer: the string
  * @delim: the dividing char
  * Return: char * to token or NULL
