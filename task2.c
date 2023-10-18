@@ -9,6 +9,7 @@
 void task2(const char *becca)
 {
 	pid_t kid = fork();
+
 	if (kid == -1)
 	{
 		perror("fork");
