@@ -22,7 +22,7 @@ env_list_t **_initenvs_list(void)
 		tok = _strdup(_strtok(NULL, " "));
 		n_env->value = tok;
 		n_env->next = NULL;
-		first= n_env;
+		first = n_env;
 		if (var_cnt == 0)
 			*env = first;
 	}

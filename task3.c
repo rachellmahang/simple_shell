@@ -9,19 +9,21 @@
 
 char **fetch_tokens(char *tok_string, char *delim)
 {
-        char *tok = NULL;
-        char *tempvar = NULL;
+	char *tok = NULL;
+        char *tempvar = NULL
 	size_t cnt = 0;
 	char **toks = malloc(sizeof(char *) * (cnt + 1));
 
         tempvar = _strdup(tok_string);
+
         if (!tempvar)
                 return (NULL);
         tok = strtok(tempvar, delim);
+
         while (tok)
         {
                 cnt++;
-                tok = strtok(NULL, delim);
+		tok = strtok(NULL, delim);
         }
         free(tempvar);
         if (!toks)
@@ -33,6 +35,6 @@ char **fetch_tokens(char *tok_string, char *delim)
                 tok = strtok(NULL, delim);
         }
         toks[cnt] = NULL;
-        
+
         return toks;
 }
