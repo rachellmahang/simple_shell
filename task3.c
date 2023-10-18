@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "simple.h"
 
 /**
   * fetch_tokens - tokenizes a string
@@ -27,7 +27,7 @@ char **fetch_tokens(char *tok_string, char *delim)
 	if (!toks)
 		return (NULL);
 
-	tok = _strtok(tok_str, delim);
+	toks = _strtok(tok_string, delim);
 	for (cnt = 0; tok; cnt++)
 	{
 		toks[cnt] = tok;

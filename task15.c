@@ -1,76 +1,76 @@
-#include "shell.h"
+#include "simple.h"
 
 /**
   * *_strcpy - copies the string pointed
-  *to by src, including the terminating null byte
-  *to the buffer pointed to by dest
-  * @dest: points to buffer
-  * @src: points to string
+  *to by source, including the terminating null byte
+  *to the buffer pointed to by destin
+  * @destin: points to buffer
+  * @source: points to string
   *
   * Return: pointer
   */
-char *_strcpy(char *dest, char *src)
+char *_strcpy(char *destin, char *source)
 {
-	char *answer = dest;
+	char *response  = destin;
 
-	while (*src)
+	while (*source)
 	{
-		*dest = *src;
-		dest++;
-		src++;
+		*destin = *source;
+		destin++;
+		source++;
 	}
-	*dest = '\0';
-return (answer);
+	*destin = '\0';
+return (response);
 }
 
 /**
   * *_strcat - a function to concatenate 2 strings
-  * @dest: what we are apprending to
-  * @src: the string we are appending from
+  * @destin: what we are apprending to
+  * @source: the string we are appending from
   * Return: char
   */
-char *_strcat(char *dest, char *src)
+char *_strcat(char *destin, char *source)
 {
-	char *begin = dest;
+	char *begin = destin;
 
-	while (*dest)
-		dest++;
-	while (*src)
+	while (*destin)
+		destin++;
+	while (*source)
 	{
-		*dest = *src;
-		src++;
-		dest++;
+		*destin = *source;
+		source++;
+		destin++;
 	}
-	*dest = '\0';
+	*destin = '\0';
 	return (begin);
 }
 
 /**
   * _strchr - locates a character
-  * @s: the string we look thru
-  * @c: the character we look for
+  * @l: the string we look thru
+  * @y: the character we look for
   * Return: a pointer to the char or NULL
   */
-char *_strchr(char *s, char c)
+char *_strchr(char *l, char y)
 {
-	if (s == NULL)
+	if (l == NULL)
 		return (NULL);
-	for (; *s; s++)
+	for (; *l; l++)
 	{
-		if (*s == c)
-			return (s);
+		if (*l == y)
+			return (l);
 	}
-	if (*s == c)
+	if (*l == y)
 	{
-		return (s);
+		return (l);
 	}
 	return (NULL);
 }
 /**
- * do_nothing - a dummy function
- * @nothing: a dummy integer
+ * do_something - a dummy function
+ * @something: a dummy integer
  */
-void do_nothing(__attribute__((unused))int nothing)
+void do_something(__attribute__((unused))int something)
 {
 	_putchar('\n');
 	puts_prompt();

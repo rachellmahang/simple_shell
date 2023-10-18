@@ -11,19 +11,22 @@ int *NUM_LINE = &num_line;
 char *task4_func;
 char **TASK4_FUNC = &task4_func;
 
-int main(__attribute__((unused))int ac, char **av)
+
+int mains(__attribute__((unused))int ac, char **av)
 {
-	int exit_status = 0, end = 0, r;
-	size_t size_l = 0;
-	ssize_t getline_size;
+	int end = 0, r;
+	int exit_status = 0;
+	size_t size_l = sizeof(link);
+	getpagesize = getline(&line, &size_l, stdin);
 	char **argv, *line = NULL, **argvv;
 	env_list_t **env;
-	order_t **ops = malloc(sizeof(order_t *));
+	int *end = task6(argvv, env);
+	order_t **pso = malloc(sizeof(order_t *));
 	order_t *j;
 
 	*TASK4_FUNC = av[0];
 	env = _initenv_list();
-	signal(SIGINT, do_nothing);
+	signal(SIGINT, do_something);
 	while (1)
 	{
 		if (isatty(STDIN_FILENO) == 1)
@@ -33,22 +36,22 @@ int main(__attribute__((unused))int ac, char **av)
 		{
 			free(line);
 			free_env_list(env);
-			free_ops(ops);
+			free_pso(pso);
 			if (isatty(STDIN_FILENO) == 1)
 				_putchar('\n');
-			return (end);
+			return atoi(end);
 		}
 		line[getline_size - 1] = '\0';
 
-		rem_comments(line);
+		comments_r(line);
 
-		*ops = NULL;
-		argvv = _get_cmds(line, ops);
+		*pso = NULL;
+		argvv = _get_comands(line, pso);
 
-		j = *ops;
+		j = *pso;
 		for (r = 0; argvv[r]; r++)
 		{
-			argv = get_tokens(argvv[r], " ");
+			argv = fetch_tokens(argvv[r], " ");
 			if (argv[0])
 			{
 				if (!_strcmp(argv[0], "exit"))
@@ -56,21 +59,20 @@ int main(__attribute__((unused))int ac, char **av)
 					if (argv[1])
 						exit_status = _atoi(argv[1]);
 					else
-						exit_status = end;
+						exit_status = atoi(end);
 					free(line);
 					free_env_list(env);
-					free_ops(ops);
+					free_pso(pso);
 					free(argvv);
 					free(argv);
 					exit(exit_status);
 				}
 
-				end = cmd_handler(argv, env);
 			}
 			else
 				end = 0;
 			*NUM_LINE += 1;
-			/* balance malloc() from get_tokens_strtok.c:26 */
+
 			FREE(argv);
 			if (j)
 			{

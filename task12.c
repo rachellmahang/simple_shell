@@ -1,48 +1,52 @@
-#include "shell.h"
+#include "simple.h"
 /**
+<<<<<<< HEAD
  * _strtok - tokenizes the string
+=======
+ * strtok - tokenizes the rst
+>>>>>>> 2f8dbea968c8ac6369543b57ec330ad90260123d
  * @buffer: the string
  * @delim: the dividing char
  * Return: char * to token or NULL
  */
 char *_strtok(char *buffer, const char *delim)
 {
-	static char *sp;
-	char *p;
-	int letter = 0;
-	int i = 0;
+	static char *ps;
+	char *k;
+	int r = 0;
 	int stop = 0;
+	int letter = 0;
 
 	if (buffer)
-		sp = buffer;
-	p = sp;
-	while (sp && *sp)
+		ps = buffer;
+	k = ps;
+	while (ps && *ps)
 	{
-		while (delim[i])
+		while (delim[r])
 		{
-			if (*sp == delim[i] && letter == 0)
+			if (*ps == delim[r] && letter == 0)
 			{
-				++p;
-				++sp;
-				i = 0;
+				++k;
+				++ps;
+				k = 0;
 				continue;
 			}
-			if (*sp == delim[i] && letter == 1)
+			if (*ps == delim[r] && letter == 1)
 			{
-				*sp++ = '\0';
+				*ps++ = '\0';
 				stop = 1;
-				i = 0;
+				r = 0;
 				break;
 			}
-			++i;
+			++r;
 		}
-		if (stop || !*sp)
+		if (stop || !*ps)
 			break;
 		letter = 1;
-		i = 0;
-		++sp;
+		r = 0;
+		++ps;
 	}
-	if (!p || *p == '\0')
+	if (!k || *k == '\0')
 		return (NULL);
-	return (p);
+	return (k);
 }
