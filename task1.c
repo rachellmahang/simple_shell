@@ -1,7 +1,7 @@
 #include "simple.h"
 
 /**
- * task1 - entry point 
+ * task1 - Entry point
  * Author: rachel and rebecca
  */
 

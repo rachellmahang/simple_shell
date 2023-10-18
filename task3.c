@@ -6,6 +6,7 @@
   * @delim: char * of delimiters
   * Return: char **, argument vector to be used in execve or other
   */
+
 char **fetch_tokens(char *tok_string, char *delim)
 {
         char *tok = NULL;
@@ -28,7 +29,7 @@ char **fetch_tokens(char *tok_string, char *delim)
 
         for (cnt = 0; tok; cnt++)
         {
-                toks[cnt] = tok;
+	 	toks[cnt] = tok;
                 tok = strtok(NULL, delim);
         }
         toks[cnt] = NULL;
